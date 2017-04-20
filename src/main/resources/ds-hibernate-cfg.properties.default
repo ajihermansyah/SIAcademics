@@ -1,0 +1,10 @@
+# Postgre JDBC Connect
+jdbc.driverClassName = org.postgresql.Driver
+jdbc.url = jdbc:postgresql://localhost:5432/DatabaseName
+jdbc.username = username
+jdbc.password = password
+# Hibernate Config
+hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+hibernate.hbm2ddl.auto= create
+hibernate.show_sql=true
+current_session_context_class=thread
