@@ -87,14 +87,25 @@ public class ReportDAOImpl implements ReportDAO{
 		query.setMaxResults(2);
 		List<Object[]>list1=query.list();
 		
-		for(Object[] frsf : list1){
-			System.out.println("Nim  : "+frsf[0]);
-			System.out.println("Nama : "+frsf[1]);
-			System.out.println("SKS  : "+frsf[2]);
-			System.out.println("semester : "+frsf[3]);
-			System.out.println("id   : "+frsf[4]);
+		for(Object[] maxSks : list1){
+			System.out.println("Nim  : "+maxSks[0]);
+			System.out.println("Nama : "+maxSks[1]);
+			System.out.println("SKS  : "+maxSks[2]);
+			System.out.println("semester : "+maxSks[3]);
+			System.out.println("id   : "+maxSks[4]);
 		}
 		return list1;
+	}
+	
+	@Override
+	public List<Object[]> reportSchedule(String day, Integer in1, Integer in2){
+		String sql = "select sbj.subjectCode, sbj.subjectName, r.roomName, s.jam_masuk, s.jam_keluar "
+					+ "from Schedule s, Subject sbj, Room r "
+					+ "where r.id=s.room and s.subj=sbj.id and (s.jam_masuk BETWEEN "+in1+" AND "+in2+") and s.days like '"+day+"'";
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery(sql);
+		List<Object[]> list = query.list();
+		return list;
 	}
 	
 }

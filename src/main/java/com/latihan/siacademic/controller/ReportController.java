@@ -2,14 +2,11 @@ package com.latihan.siacademic.controller;
 
 import java.util.List;
 
-import javax.swing.JOptionPane;
-
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,9 +14,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.latihan.siacademic.dao.ReportDAO;
 import com.latihan.siacademic.dao.SubjectDAO;
-import com.latihan.siacademic.entity.Student;
 import com.latihan.siacademic.entity.Subject;
-import com.latihan.siacademic.model.FRSInfo;
 
 @Controller
 @Transactional
@@ -83,6 +78,17 @@ public class ReportController {
 		}
 		model.addAttribute("reportMaxSks", list);
 		return "reportMaxSks";
+	}
+	
+	@RequestMapping(value = "/reportSchedule", method = RequestMethod.GET)
+	public String reportScedule(Model model, @RequestParam("days") String days, @RequestParam("in1") Integer in1, 
+			@RequestParam("in2") Integer in2) {
+		List<Object[]> list = reportDAO.reportSchedule(days, in1, in2);
+		for (Object[] frs : list) {
+			Hibernate.initialize(frs[0]);
+		}
+		model.addAttribute("reportSchedule", list);
+		return "reportSchedule";
 	}
 
 }

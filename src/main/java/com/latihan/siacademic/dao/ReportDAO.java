@@ -13,4 +13,6 @@ public interface ReportDAO {
 	public List<Object[]> reportSubject(Integer id);
 	
 	public List<Object[]> reportMaxSks(String semester);
+	
+	public List<Object[]> reportSchedule(String days, Integer in1, Integer in2);
 }
