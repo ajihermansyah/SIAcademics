@@ -239,14 +239,20 @@
 					  	     		<form:errors path="jam_keluar" class="error-message" />
               	   		      </div>
               	   		</div>
-              	   		<div class="item form-group">
-                 			 <label class="control-label col-md-3 col-sm-3 col-xs-12">Date</label>
-                  			 <div class="col-md-6 col-sm-6 col-xs-12">
-                                <form:input path="date" type="text" class="form-control has-feedback-left" id="single_cal4" placeholder="Enter Date" required="required"/>
-                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-								<form:errors path="date" class="error-message" />
-              	   		      </div>
-              	   		</div>
+              	   		 <div class=" item form-group">
+                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >Days</label>
+                  			<div class="col-md-6 col-sm-6 col-xs-12">
+								<form:select path="days" class="form-control">
+									<form:option value="Monday" label="Monday" />
+									<form:option value="Tuesday" label="Tuesday" />
+									<form:option value="Wednesday" label="Wednesday" />
+									<form:option value="Thursday" label="Thrusday" />
+									<form:option value="Friday" label="Friday" />
+									<form:option value="Saturday" label="Saturday" />
+								</form:select>
+								<form:errors path="days" class="error-message" />
+               		    	</div>
+               		    </div>
              
                       <div class="ln_solid"></div>
                       <div class="form-group">
