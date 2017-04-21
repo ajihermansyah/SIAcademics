@@ -43,7 +43,7 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 		}
 		System.out.println("aaaa= "+schedule.getId());
 		System.out.println("bbbb="+schedule.getSubj().getId());
-		return new ScheduleInfo(schedule.getId(), schedule.getSubj().getId(), schedule.getRoom().getId(), schedule.getJam_masuk(), schedule.getJam_keluar(), schedule.getDate());
+		return new ScheduleInfo(schedule.getId(), schedule.getSubj().getId(), schedule.getRoom().getId(), schedule.getJam_masuk(), schedule.getJam_keluar(), schedule.getDays());
 	}
 	
 	@Override
@@ -73,7 +73,7 @@ public class ScheduleDAOImpl implements ScheduleDAO {
 		schedule.setRoom(room);
 		schedule.setJam_masuk(scheduleInfo.getJam_masuk());
 		schedule.setJam_keluar(scheduleInfo.getJam_keluar());
-		schedule.setDate(scheduleInfo.getDate());
+		schedule.setDays(scheduleInfo.getDays());
 		session.persist(schedule);
 	}
 	
