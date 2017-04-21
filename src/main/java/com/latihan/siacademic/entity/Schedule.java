@@ -22,7 +22,7 @@ public class Schedule implements Serializable {
 	private Room room;
 	private Integer jam_masuk;
 	private Integer jam_keluar;
-	private String date;
+	private String days;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -73,13 +73,13 @@ public class Schedule implements Serializable {
 		this.jam_keluar = jam_keluar;
 	}
 	
-	@Column(name="date", nullable = false)
-	public String getDate() {
-		return date;
+	@Column(name="days", nullable = false)
+	public String getDays() {
+		return days;
 	}
 	
-	public void setDate(String date){
-		this.date = date;
+	public void setDays(String days){
+		this.days = days;
 	}
 
 }

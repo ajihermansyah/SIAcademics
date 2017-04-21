@@ -7,20 +7,20 @@ public class ScheduleInfo {
 	private Integer room;
 	private Integer jam_masuk;
 	private Integer jam_keluar;
-	private String date;
+	private String days;
 
 	public ScheduleInfo() {
 
 	}
 
 	public ScheduleInfo(Integer id, Integer subj, Integer room, Integer jam_masuk, Integer jam_keluar,
-			String date) {
+			String days) {
 		this.id = id;
 		this.subj = subj;
 		this.room = room;
 		this.jam_masuk = jam_masuk;
 		this.jam_keluar = jam_keluar;
-		this.date = date;
+		this.days = days;
 	}
 
 	public Integer getId() {
@@ -63,12 +63,12 @@ public class ScheduleInfo {
 		this.jam_keluar = jam_keluar;
 	}
 
-	public String getDate() {
-		return date;
+	public String getDays() {
+		return days;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setDays(String days) {
+		this.days = days;
 	}
 
 }
