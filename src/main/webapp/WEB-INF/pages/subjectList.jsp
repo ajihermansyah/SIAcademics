@@ -169,7 +169,7 @@
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
+                    <input type="text" class="form-control" placeholder="Search for..." id="tfSearch" onkeyup="myFunction()">
                     <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Go!</button>
                     </span>
@@ -187,7 +187,7 @@
                   </div>
 				  <div class="x_content">
                    <div class="table-responsive">
-                      <table class="table table-striped jambo_table bulk_action">
+                      <table class="table table-striped jambo_table bulk_action" id="tableData">
                         <thead>
                           <tr class="headings">
                             <th class="column-title">No </th>
@@ -245,6 +245,29 @@
         <!-- /footer content -->
       </div>
     </div>
+    
+    <script>
+		function myFunction() {
+			var input, filter, table, tr, td, i;
+			input = document.getElementById("tfSearch");
+			filter = input.value.toUpperCase();
+			table = document.getElementById("tableData");
+			tr = table.getElementsByTagName("tr");
+			for (i = 0; i < tr.length; i++) {
+				td = tr[i].getElementsByTagName("td")[1];
+				td2 = tr[i].getElementsByTagName("td")[2];
+				td3 = tr[i].getElementsByTagName("td")[3];
+				td4 = tr[i].getElementsByTagName("td")[4];
+				if (td || td2) {
+					if (td.innerHTML.toUpperCase().indexOf(filter) > -1 || td2.innerHTML.toUpperCase().indexOf(filter) > -1|| td3.innerHTML.toUpperCase().indexOf(filter) > -1 || td4.innerHTML.toUpperCase().indexOf(filter) > -1) {
+						tr[i].style.display = "";
+					} else {
+						tr[i].style.display = "none";
+					}
+				}
+			}
+		}
+	</script>
 
     <!-- jQuery -->
     <script src="${pageContext.request.contextPath}/vendors/jquery/dist/jquery.min.js"></script>
