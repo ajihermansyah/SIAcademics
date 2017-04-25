@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.latihan.siacademic.dao.MajorDAO;
 import com.latihan.siacademic.dao.StudentDAO;
+import com.latihan.siacademic.dao.UserDAO;
 import com.latihan.siacademic.entity.Major;
 import com.latihan.siacademic.entity.Student;
 import com.latihan.siacademic.model.StudentInfo;
@@ -25,6 +26,9 @@ public class StudentDAOImpl implements StudentDAO{
 	
 	@Autowired
 	private MajorDAO majorDAO;
+	
+	@Autowired
+	private UserDAO userDAO;
 	
 	@Override
 	public Student findStudent(Integer id){
@@ -76,6 +80,7 @@ public class StudentDAOImpl implements StudentDAO{
 			student.setMajor(major);
 			student.setNim((major.getMajorCode()*10000000)+(studentInfo.getTahun_angkatan()*1000)+this.getStudentByMajor(studentInfo.getTahun_angkatan(),major.getMajorCode()).size()+1);
 			session.persist(student);
+			userDAO.saveUser(student.getNim(),"Mahasiswa");
 		}
 	}
 	
