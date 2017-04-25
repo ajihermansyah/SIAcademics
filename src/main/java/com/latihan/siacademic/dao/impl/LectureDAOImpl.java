@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.latihan.siacademic.dao.LectureDAO;
 import com.latihan.siacademic.dao.MajorDAO;
+import com.latihan.siacademic.dao.UserDAO;
 import com.latihan.siacademic.entity.Lecture;
 import com.latihan.siacademic.entity.Major;
 import com.latihan.siacademic.enums.Position;
@@ -24,6 +25,9 @@ public class LectureDAOImpl implements LectureDAO {
 	
 	@Autowired
 	private MajorDAO majorDAO;
+	
+	@Autowired
+	private UserDAO userDAO;
 	
 	@Override
 	public Lecture findLecture(Integer id){
@@ -75,6 +79,7 @@ public class LectureDAOImpl implements LectureDAO {
 			lecture.setMajor(major);
 			lecture.setNID((major.getMajorCode()*100000)+(lectureInfo.getPosition().ordinal()*100)+this.getLectureByMajor(lectureInfo.getPosition(),major.getMajorCode()).size()+1);
 			session.persist(lecture);
+			userDAO.saveUser(lecture.getNID(),"Lecture");
 		}
 	}
 	
