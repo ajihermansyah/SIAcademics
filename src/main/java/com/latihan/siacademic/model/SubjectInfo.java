@@ -8,6 +8,7 @@ public class SubjectInfo {
 	private String subjectCode;
 	private String subjectName;
 	private Integer sks;
+	private Integer numberSemester;
 	private String semester;
 	
 	private List<FRSInfo> listMatKul;
@@ -16,11 +17,12 @@ public class SubjectInfo {
 		
 	}
 
-	public SubjectInfo(Integer id, String subjectCode, String subjectName, Integer sks, String semester) {
+	public SubjectInfo(Integer id, String subjectCode, String subjectName, Integer sks, Integer numberSemester, String semester) {
 		this.id = id;
 		this.subjectCode = subjectCode;
 		this.subjectName = subjectName;
 		this.sks = sks;
+		this.numberSemester = numberSemester;
 		this.semester = semester;
 	}
 
@@ -54,6 +56,14 @@ public class SubjectInfo {
 
 	public void setSks(Integer sks) {
 		this.sks = sks;
+	}
+	
+	public Integer getNumberSemester(){
+		return numberSemester;
+	}
+	
+	public void setNumberSemester(Integer numberSemester){
+		this.numberSemester = numberSemester;
 	}
 
 	public String getSemester() {

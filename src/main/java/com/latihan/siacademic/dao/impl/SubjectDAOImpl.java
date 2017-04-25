@@ -33,7 +33,7 @@ public class SubjectDAOImpl implements SubjectDAO {
 		if(mk == null){
 			return null;
 		}
-		return new SubjectInfo(mk.getId(), mk.getSubjectCode(), mk.getSubjectName(), mk.getSks(), mk.getSemester());
+		return new SubjectInfo(mk.getId(), mk.getSubjectCode(), mk.getSubjectName(), mk.getSks(), mk.getNumberSemester(), mk.getSemester());
 	}
 	
 	@Override
@@ -52,6 +52,7 @@ public class SubjectDAOImpl implements SubjectDAO {
 		mk.setSubjectCode(subjectInfo.getSubjectCode());
 		mk.setSubjectName(subjectInfo.getSubjectName());
 		mk.setSks(subjectInfo.getSks());
+		mk.setNumberSemester(subjectInfo.getNumberSemester());
 		mk.setSemester(subjectInfo.getSemester());
 
 		if (isNew) {
@@ -71,7 +72,7 @@ public class SubjectDAOImpl implements SubjectDAO {
 	@Override
 	public List<SubjectInfo> listSubjectInfos() {
 		   String sql = "Select new " + SubjectInfo.class.getName()//
-	                + "(a.id, a.subjectCode, a.subjectName, a.sks, a.semester) "//
+	                + "(a.id, a.subjectCode, a.subjectName, a.sks, a.numberSemester, a.semester) "//
 	                + " from " + Subject.class.getName() + " a ";
 	        Session session = sessionFactory.getCurrentSession();
 	        Query query = session.createQuery(sql);

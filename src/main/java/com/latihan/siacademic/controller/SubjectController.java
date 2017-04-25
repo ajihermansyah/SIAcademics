@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import com.latihan.siacademic.dao.SubjectDAO;
 import com.latihan.siacademic.model.SubjectInfo;
@@ -64,7 +65,15 @@ public class SubjectController {
 	}
 
 	@RequestMapping(value = "/subject", method = RequestMethod.POST)
-	public String saveSubject(Model model, @ModelAttribute("subjectForm") @Validated SubjectInfo subjectInfo) {
+	public String saveSubject(Model model, @ModelAttribute("subjectForm") @Validated SubjectInfo subjectInfo,
+			@RequestParam ("numberSemester") Integer numberSemester) {
+		System.out.println("number = "+numberSemester);
+		if(numberSemester % 2 == 0){
+			subjectInfo.setSemester("Genap");
+		}else{
+			subjectInfo.setSemester("Ganjil");
+		}
+		System.out.println("info semester = "+subjectInfo.getSemester());
 		this.subjectDAO.saveSubject(subjectInfo);
 		return "redirect:/subjects";	
 	}

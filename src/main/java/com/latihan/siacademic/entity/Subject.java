@@ -19,6 +19,7 @@ public class Subject implements Serializable {
 	private String subjectCode;
 	private String subjectName;
 	private Integer sks;
+	private Integer numberSemester;
 	private String semester;
 	
 	
@@ -55,6 +56,15 @@ public class Subject implements Serializable {
 	}
 	public void setSks(Integer sks) {
 		this.sks = sks;
+	}
+	
+	@Column(name= "numberSemester", nullable = false)
+	public Integer getNumberSemester(){
+		return numberSemester;
+	}
+	
+	public void setNumberSemester(Integer numberSemester){
+		this.numberSemester = numberSemester;
 	}
 	
 	@Column(name = "semester", length = 50, nullable = false)
