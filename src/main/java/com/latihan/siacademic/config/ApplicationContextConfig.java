@@ -20,6 +20,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.latihan.siacademic.dao.FRSDAO;
 import com.latihan.siacademic.dao.FRSDetailsDAO;
+import com.latihan.siacademic.dao.LectureDAO;
 import com.latihan.siacademic.dao.ScheduleDAO;
 import com.latihan.siacademic.dao.MajorDAO;
 import com.latihan.siacademic.dao.ReportDAO;
@@ -29,6 +30,7 @@ import com.latihan.siacademic.dao.RoomDAO;
 import com.latihan.siacademic.dao.StudentDAO;
 import com.latihan.siacademic.dao.impl.FRSDAOImpl;
 import com.latihan.siacademic.dao.impl.FRSDetailsDAOImpl;
+import com.latihan.siacademic.dao.impl.LectureDAOImpl;
 import com.latihan.siacademic.dao.impl.ScheduleDAOImpl;
 import com.latihan.siacademic.dao.impl.MajorDAOImpl;
 import com.latihan.siacademic.dao.impl.ReportDAOImpl;
@@ -139,6 +141,11 @@ public class ApplicationContextConfig {
 	 @Bean(name = "reportDAO")
 	 public ReportDAO getReport(){
 		 return new ReportDAOImpl();
+	 }
+	 
+	 @Bean(name = "LectureDAO")
+	 public LectureDAO getLectureDAO() {
+	     return new LectureDAOImpl();
 	 }
 
 }
