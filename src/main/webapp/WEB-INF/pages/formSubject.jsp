@@ -213,13 +213,26 @@
                       <div class=" item form-group">
                          <label class="control-label col-md-3 col-sm-3 col-xs-12" >Semester</label>
                   			<div class="col-md-6 col-sm-6 col-xs-12">
-								<form:select path="semester" class="form-control">
-									<form:option value="Ganjil" label="Ganjil" />
-									<form:option value="Genap" label="Genap" />
+								<form:select path="numberSemester" class="form-control" name="numberSemester">
+									<form:option value="1" label="1" />
+									<form:option value="2" label="2" />
+									<form:option value="3" label="3" />
+									<form:option value="4" label="4" />
+									<form:option value="5" label="5" />
+									<form:option value="6" label="6" />
+									<form:option value="7" label="7" />
+									<form:option value="8" label="8" />
 								</form:select>
-								<form:errors path="semester" class="error-message" />
+								<form:errors path="numberSemester" class="error-message" />
                		    	</div>
                		    </div>
+               		    
+               		    <div class="item form-group">
+                  			  <div class="col-md-6 col-sm-6 col-xs-12">
+                  			 		<form:hidden path="semester" class="form-control" placeholder="Enter SKS" required="required"/>
+					  	     		<form:errors path="semester" class="error-message" />
+              	   		      </div>
+              	   		</div>
 						
                       <div class="ln_solid"></div>
                       <div class="form-group">

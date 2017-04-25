@@ -194,6 +194,7 @@
                             <th class="column-title">Subject Code </th>
                             <th class="column-title">Subject Name </th>
                             <th class="column-title">SKS </th>
+                            <th class="column-title">Number Semester </th>
                             <th class="column-title">Semester </th>
                             <th class="column-title no-link last" colspan="2"><span class="nobr">Action</span></th>
                             <th class="bulk-actions" colspan="7">
@@ -210,6 +211,7 @@
 										<td>${info.subjectCode}</td>
 										<td>${info.subjectName}</td>
 										<td>${info.sks}</td>
+										<td>${info.numberSemester}</td>
 										<td>${info.semester}</td>
 									 	<td>
 									 		<a data-toggle="tooltip" data-placement="top" title="Delete"  onclick="return confirm('Are you sure you want to delete?')" href="subject/${info.id}">
